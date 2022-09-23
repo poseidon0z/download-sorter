@@ -1,7 +1,7 @@
 {
-  "pdf": [".pdf"],
-  "Image": [".jpg", ".png", ".jepg", ".webp"],
-  "gif": [".gif"],
-  "Application": [".exe", ".msi"],
-  "Audio": [".mp3"]
+  "pdfs": [".pdf"],
+  "Images": [".jpg", ".png", ".jepg", ".webp"],
+  "gifs": [".gif"],
+  "Applications": [".exe", ".msi"],
+  "Audios": [".mp3"]
 }

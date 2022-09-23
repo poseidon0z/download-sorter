@@ -58,4 +58,4 @@ def organiser():
 
 if __name__ == "__main__":
     organiser()
-    time.sleep(15)
+    time.sleep(5)

@@ -1,0 +1,7 @@
+{
+  "pdf": [".pdf"],
+  "Image": [".jpg", ".png", ".jepg", ".webp"],
+  "gif": [".gif"],
+  "Application": [".exe", ".msi"],
+  "Audio": [".mp3"]
+}

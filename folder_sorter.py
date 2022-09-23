@@ -12,13 +12,15 @@ with open("file_types.json") as f:
 
 
 def check_for_folders(directory):
+    '''
+    Check if folders for the various file types exist, and creates the folder for that type if it doesnt
+    '''
     for file_type in file_types:
         folder = directory + "\\" + file_type
-        if os.path.isdir(folder):
-            print(f"Found {file_type} folder")
-        else:
+        if not os.path.isdir(folder):
             os.mkdir(folder)
-            print(f"Created {file_type} folder")
+
+# Main function
 
 
 def organiser():
@@ -29,11 +31,11 @@ def organiser():
         print("Cancelling...")
         return
 
-    check_for_folders(directory)
-
+    print("Checking files in your folder...")
     files = [f for f in os.listdir() if os.path.isfile(
         os.path.join(directory, f))]
 
+    check_for_folders(directory)
     for file_type in file_types:
         count = 0
         file_extensions = file_types[file_type]
@@ -43,7 +45,13 @@ def organiser():
                 from_path = directory + "\\" + file
                 to_path = directory + "\\" + file_type + "\\" + file
                 shutil.move(from_path, to_path)
-        print(f"Moved {count} items to {file_type} folder")
+        if count != 0:
+            print(f"Moved {count} items to {file_type} folder")
+
+        # Cleanup code to remove folder for certain file type if it is empty
+        folder = directory + "\\" + file_type
+        if len(os.listdir(folder)) == 0:
+            os.rmdir(folder)
 
     print("sorted")
 
